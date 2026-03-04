@@ -1,0 +1,97 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    
+      enable_servos();
+
+    set_servo_position(0,1627);
+
+    set_servo_position(3,935);
+
+    ao();
+    msleep(1000);
+
+    set_servo_position(3,1740);
+
+    ao();
+    msleep(1000);
+
+    set_servo_position(0,1385);
+
+    ao();
+    msleep(100);
+
+    motor(0,-100);
+    motor(3,-100);
+    msleep(1200);
+
+    motor(0,-100);
+    motor(3,100);
+    msleep(800);
+
+   
+    
+    motor(0,95);
+    motor(3,100);
+    msleep(1300);
+    
+    
+
+    ao();
+    msleep(1000);
+
+    motor(0,95);
+    motor(3,100);
+    msleep(1200);
+    
+      while(analog (3) <= 1300)
+    {
+    if (analog (0) >= 1300)
+    { 
+        motor(0,30);
+        motor(3,100);
+    }
+    else if  (analog (0) <= 1300)
+    {
+        motor(0,100);
+        motor(3,30);
+    }
+    else
+    {
+        motor(0,80);
+      
+    motor(3,80);
+    }
+       
+    }
+      
+    
+    ao();
+    msleep(1000);
+    
+     set_servo_position(0,750);
+    
+    
+      motor(0,100);
+    motor(3,100);
+    msleep(900);      
+
+    motor(0,-100);
+    motor(3,100);
+    msleep(730);
+
+      motor(0,100);
+    motor(3,100);
+    msleep(1400);
+    
+    set_servo_position(3,1400);
+    
+    
+    disable_servos();
+    
+    set_servo_position(3,1113);
+    
+    
+    return 0;
+}
