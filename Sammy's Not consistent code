@@ -1,0 +1,124 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    printf("Hello World\n");
+    
+    enable_servos();
+    
+    set_servo_position(0,2047);
+    msleep(1000);
+    
+    set_servo_position(3,1575);
+    msleep(1000);
+    
+    motor(0,100);
+    motor(3,100);
+    msleep(2350);
+    
+    motor(3,50);
+    motor(0,-50);
+    msleep(1500);
+  
+    while(analog (3) <= 1300)// line follow
+    {
+    if (analog (5) >= 1300)
+    { 
+        motor(0,30);
+        motor(3,100);
+    }
+    else if  (analog (5) <= 1300)
+    {
+        motor(0,100);
+        motor(3,30);
+    }
+    else
+    {
+        motor(0,80);
+      
+    motor(3,80);
+    }
+       
+    }
+    
+    ao();
+    msleep(1000);
+
+    motor(0,100);
+    motor(3,100);
+    msleep(620);
+    
+    motor(3,-50);
+    motor(0,50);
+    msleep(600);
+    
+    set_servo_position(0,182);
+    msleep(1000); 
+    
+    motor(0,100);
+    motor(3,100);
+    msleep(500);
+    
+    motor(0,50);// push cube out of the way
+    motor(3,-50);
+    msleep(2000);
+   
+    motor(0,-50);
+    motor(3,50);
+    msleep(1350);
+    
+    motor(0,100);
+    motor(3,100);
+    msleep(450);
+    
+    ao();
+    msleep(5000);
+    
+    set_servo_position(3,555);
+    msleep(1000);
+    
+    set_servo_position(0,430);
+    msleep(1000);
+    
+    ao();
+    msleep(3000);
+    
+    motor(0,100);
+    motor(3,0);
+    msleep(1000);
+    
+    motor(0,-100);
+    motor(3,0);
+    msleep(1000);
+    
+    ao();
+    msleep(1000);
+    
+    //motor(0,50);
+    //motor(3,0);
+    //msleep(1000);
+    
+    motor(0,100);
+    motor(3,90);
+    msleep(500);// drive into shower
+    
+    set_servo_position(3,1575);// grab botguy
+    msleep(1000);
+    
+    ao();
+    msleep(1000);
+    
+    set_servo_position(0,575);
+    msleep(1000);
+    
+    motor(0,-100);
+    motor(3,-100);
+    msleep(1000);
+    
+    set_servo_position(0,1867);
+    msleep(1000);
+    
+    disable_servos();
+    
+    return 0;
+}
