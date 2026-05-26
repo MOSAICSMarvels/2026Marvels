@@ -1,0 +1,53 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    printf("Go Cook at GCER!!!\n");
+    
+    int up = 0;
+    int down = 1280;
+    int ledge = 727;
+    int close = 301; 
+    int open = 1091;
+    int arm = 0;
+    int claw = 3;
+    
+    enable_servos();
+    
+    set_servo_position(arm,up);
+    msleep(1000);
+    
+    ao();
+    msleep(2000);
+    
+    set_servo_position(arm,down);
+    msleep(1000);
+    
+    set_servo_position(claw,open);
+    msleep(1000);
+    
+    ao();
+    msleep(500);
+    
+    motor(0,100);
+    motor(3,92);
+    msleep(1500);
+    
+    ao();
+    msleep(500);
+    
+    set_servo_position(claw,close);
+    msleep(1000);
+    
+    set_servo_position(arm,ledge);
+    msleep(1000);
+    
+    motor(0,-50);
+    motor(3,-50);
+    msleep(2300);
+    
+    disable_servos();
+    
+    
+    return 0;
+}
