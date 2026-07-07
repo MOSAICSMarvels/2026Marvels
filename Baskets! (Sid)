@@ -1,0 +1,46 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    int arm=0;
+    int claw=1;
+    int micro=3;
+
+    enable_servos();
+    set_servo_position(arm,228);
+    set_servo_position(micro,620);
+    msleep(500);
+
+    motor(0,80);//drive forward
+    motor(3,80);
+    msleep(1000);
+
+    motor(0,0);//turn right
+    motor(3,60);
+    set_servo_position(3,600);
+    msleep(2500);
+
+    motor(0,80);//drive forward
+    motor(3,80);
+    msleep(2000);
+
+
+
+    set_servo_position(micro, 1060);//micro in up position
+    set_servo_position(arm,140); //arm is back
+    msleep(100);
+
+    motor(0,80);//drive forward
+    motor(3,80);
+    msleep(1000);
+
+    set_servo_position(micro, 390);//drop basket grabber
+    msleep(100);
+
+    motor(0,-80);//pull baskets out
+    motor(3,-80);
+    msleep(2000);
+
+
+    return 0;
+}
