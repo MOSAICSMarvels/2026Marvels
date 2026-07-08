@@ -28,7 +28,7 @@ int main()
     set_servo_position(arm,down);
     msleep(1000);
     
-    motor(0,50);
+    motor(0,48);
     motor(3,50);
     msleep(2000);
     
@@ -79,7 +79,7 @@ int main()
     
     motor(3,-50);
     motor(0,50);
-    msleep(2000);
+    msleep(1900);
     
     motor(0,50);
     motor(3,50);
@@ -106,7 +106,7 @@ int main()
     
     motor(3,50);
     motor(0,-50);
-    msleep(500);
+    msleep(400);
     
     motor(0,100);
     motor(3,91);
@@ -137,140 +137,150 @@ int main()
     
     motor(0,-50);
     motor(3,-50);
-    msleep(700);
+    msleep(600);
     
     ao();
     msleep(2000);
     
      //Oli's code start and i have to make this long so that it's easy to find because it goes all the way across the screen and I love bees
-    
+
     set_servo_position(arm,up);
-    
+
     set_servo_position(claw,830);
-    
+
     motor(0,-100);
     motor(3,-100);
-    msleep(850);
-    
+    msleep(650);
+
     ao();
     msleep(500);
-      
+
     motor(0,100);
     motor(3,-100);
     msleep(875); 
 
-    set_servo_position(arm,1175);
-    
+    set_servo_position(arm,1075);
+
     motor(0,90);
     motor(3,100);
-    msleep(4300);
-    
+    msleep(4500);
+
     set_servo_position(arm,up);
-    
-    motor(0,98);
+
+    motor(0,95);
     motor(3,100);
-    msleep(5000);
-    
+    msleep(4500);
+
     motor(0,30);
     motor(3,100);
     msleep(4650);
-    
-    motor(0,100);
+
     motor(3,100);
-    msleep(400);
-    
+    motor(0,100);
+    msleep(300);
+
     set_servo_position(claw,1300);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(arm,950);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(claw,320);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(arm,up);
-    
+
     motor(0,100);
     motor(3,-100);
     msleep(860); 
-    
+
     motor(0,100);
     motor(3,100);
     msleep(1000); 
-    
+
     motor(0,-100);
     motor(3,100);
     msleep(900); 
-    
+
     ao();
     msleep(500);
-    
+
     motor(0,100);
     motor(3,100);
     msleep(1100); 
-    
-     ao();
+
+    ao();
     msleep(500);
-    
+
     set_servo_position(arm,down);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(claw,1200);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(arm,up);
-    
+
     ao();
     msleep(500);
-    
+
     motor(0,-100);
     motor(3,-100);
     msleep(1500); 
-    
+
     motor(0,100);
     motor(3,-100);
-    msleep(600); 
-    
+    msleep(550); 
+
     motor(0,100);
     motor(3,100);
     msleep(1500); 
-    
+
     motor(0,100);
     motor(3,-100);
     msleep(250);
+
+    motor(0,100);
+    motor(3,100);
+    msleep(1000);
     
     set_servo_position(claw,open);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(arm,down);
-    
+
     ao();
     msleep(500);
     set_servo_position(claw,close);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(arm,up);
-    
+
     ao();
     msleep(500);
+
+    motor(0,-100);
+    motor(3,-100);
+    msleep(4000);
     
+    motor(0,100);
+    motor(3,-100);
+    msleep(500);
     
     disable_servos();
-    
-    
     return 0;
 }
+
