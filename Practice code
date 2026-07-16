@@ -1,0 +1,23 @@
+while (analog(0) <= 2255)
+        
+    {
+        if (analog(0) >= 2255)
+        {
+        motor(3,75);
+        motor(0,100);
+        {
+    
+    	else if (analog (0) <= 2255)
+        {
+            
+        motor(0,75);
+        motor(3,100);
+   	 	}
+    
+    	else 
+        
+    	{
+        motor(3,100);
+        motor(0,100);
+    	}
+	}
