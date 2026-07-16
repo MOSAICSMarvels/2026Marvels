@@ -21,3 +21,25 @@ while (analog(0) <= 2255)
         motor(0,100);
     	}
 	}
+
+
+**** MRS. Hopper's Sample code to follow/test out ****
+
+while(analog(0)<=3500) ---- This is set up to stop when the 2nd sensor is triggered.------
+	{
+		if (analog (2) > 1200)
+		{
+			motor(0,80);
+			motor(3,10);
+		}
+		else
+		{
+			motor(0,10);
+			motor(3,80);
+		}
+		
+	}
+	
+	
+	ao();
+	msleep(1000);
