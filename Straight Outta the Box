@@ -1,0 +1,47 @@
+#include <kipr/botball.h>
+#include <stdio.h>
+
+
+int main() {
+
+wait_for_light(5);
+shut_down_in(119);
+
+printf("Clear the Deck!\n");
+    motor(LEFT_MOTOR, MOTOR_POWER);
+    motor(RIGHT_MOTOR, MOTOR_POWER);
+    sleep(1.0);  // Move forward for 1 second
+    
+    // STEP 2: Follow the black line for 5 seconds
+    printf("Starting line follow...\n");
+    int start_time = seconds();
+    
+    while (seconds() - start_time < 5) {
+        // Read the analog sensor on port 0
+        int sensor_value = analog(LINE_SENSOR);
+        
+        printf("Sensor: %d\n", sensor_value);
+        
+        // Simple line following logic
+        if (sensor_value < BLACK_LINE_THRESHOLD) {
+            // Found the black line - go straight
+            motor(LEFT_MOTOR, MOTOR_POWER);
+            motor(RIGHT_MOTOR, MOTOR_POWER);
+        } else {
+            // Lost the line - turn right to find it
+            motor(LEFT_MOTOR, MOTOR_POWER);
+            motor(RIGHT_MOTOR, 0);
+        }
+        
+        msleep(100);  // Check sensor every 100 milliseconds
+    }
+    
+    // STEP 3: Stop the robot
+    printf("5 seconds complete - stopping\n");
+    motor(LEFT_MOTOR, 0);
+    motor(RIGHT_MOTOR, 0);
+    
+    printf("Program finished!\n");
+    
+    return 0;
+}
